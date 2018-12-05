@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyTime</string>
+    <string name="calendar">Calendar</string>
+    <string name="date">Date</string>
+    <string name="currenttimemills">currentTimeMills</string>
+    <string name="show">时间显示</string>
+</resources>
