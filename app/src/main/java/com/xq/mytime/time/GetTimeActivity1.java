@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.xq.mytime.R;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -53,6 +54,71 @@ public class GetTimeActivity1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time1);
         ButterKnife.bind(this);
+
+
+        //月
+        int timesMonthmorning = TimeUtil.getTimesMonthmorning();
+        int timesMonthnight = TimeUtil.getTimesMonthnight();
+        //日
+        int timesmorning = TimeUtil.getTimesmorning();
+        int timesnight = TimeUtil.getTimesnight();
+        //周
+        int timesWeekmorning = TimeUtil.getTimesWeekmorning();
+        int timesWeeknight = TimeUtil.getTimesWeeknight();
+        System.out.println("timesMonthmorning========================" + timesMonthmorning);
+        System.out.println("timesMonthnight========================" + timesMonthnight);
+        System.out.println("timesmorning========================" + timesmorning);
+        System.out.println("timesnight========================" + timesnight);
+        System.out.println("timesWeekmorning========================" + timesWeekmorning);
+        System.out.println("timesWeeknight========================" + timesWeeknight);
+
+        int timesmorning5 = TimeUtil.getTimesmorning5();
+        System.out.println("timesmorning5======================" + timesmorning5);
+        long nowTime = TimeUtil.getNowTime();
+        System.out.println("nowTime====================================" + nowTime);
+
+        try {
+            boolean today1 = TimeUtil.isToday("2018-12-6 10:10:30");
+            System.out.println("today1===================" + today1);//
+
+            boolean today2 = TimeUtil.isToday("2018-12-5 10:10:30");
+            System.out.println("today2===================" + today2);
+
+            boolean today3 = TimeUtil.isToday("2018-12-7 10:10:30");
+            System.out.println("today3===================" + today3);
+
+            boolean today4 = TimeUtil.isToday("2018-12-5");
+            System.out.println("today4===================" + today4);
+
+            /*--------------------------------------------------------------*/
+
+            boolean today5 = TimeUtil.isYesterday("2018-12-6 10:10:30");
+            System.out.println("today5===================" + today5);
+
+            boolean today6 = TimeUtil.isYesterday("2018-12-5 10:10:30");//
+            System.out.println("today6===================" + today6);
+
+            boolean today7 = TimeUtil.isYesterday("2018-12-7 10:10:30");
+            System.out.println("today7===================" + today7);
+
+            boolean today8 = TimeUtil.isYesterday("2018-12-5");
+            System.out.println("today8===================" + today8);//
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        /*======================================================================*/
+        try {
+            Date date = string2Date("2018-12-6 9:33:10", "yyyy-MM-dd HH:mm:ss");
+            String dateDiff = TimeUtil.getDateDiff(date.getTime());
+            System.out.println("dateDiff========================" + dateDiff);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        /*=====================================================================*/
+
+
     }
 
     @SuppressLint("SetTextI18n")
